@@ -50,7 +50,7 @@ body {
 
 /* Header - Fixed */
 .header {
-    background: var(--accent-color);
+    background: var(--primary-color);
     padding-top: 15px;
     padding-left: 16px;
     padding-right: 16px;
@@ -58,7 +58,6 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: #4B2E2A 1px solid;
 }
 
 .header-top {
@@ -71,14 +70,14 @@ body {
 .logo {
     font-size: 20px;
     font-weight: bold;
-    color: var(--primary-color);
+    color: var(--accent-color);
     letter-spacing: 1px;
 }
 
 .user-icon {
     width: 32px;
     height: 32px;
-    background: var(--primary-color);
+    background: var(--accent-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -109,19 +108,18 @@ body {
     white-space: nowrap;
     cursor: pointer;
     transition: color 0.3s;
-    border-radius: 23%;
-    border:#4B2E2A 1px solid;
+    border-radius: 20px;
+    border:var(--accent-color) 1px solid;
     padding: 5px 15px;
+    text-decoration: none;
 }
 
-.category.active {
-    color: var(--primary-color);
-}
 
 /* Scrollable Content */
 .content {
     scrollbar-width: none;
     -ms-overflow-style: none;
+    scroll-behavior: smooth;
     flex: 1;
     overflow-y: auto;
     padding: 20px;
@@ -207,10 +205,11 @@ body {
     padding: 15px;
     text-align: center;
     font-size: 16px;
+    text-decoration: none;
     font-weight: 600;
+    border:#4B2E2A 1px solid;
     border-radius: 8px;
     cursor: pointer;
-    border: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
