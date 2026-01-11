@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="stylecart.css">
+</head>
+<body>
+    <div class="phone-frame">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div>9:41</div>
+            <div class="status-icons">
+                <span>📶</span>
+                <span>📡</span>
+                <span>🔋</span>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <a href="menu.html" class="back-btn">↩</a>
+            <div class="page-title">Cart</div>
+            <a href="settings.html" class="user-icon">👤</a>
+        </div>
+
+        <!-- Scrollable Content -->
+        <div class="content">
+            <!-- Cart Items Container -->
+            <div id="cart-items">
+                <!-- Items will be dynamically added here -->
+            </div>
+
+            <!-- Empty Cart Message -->
+            <div id="empty-cart" class="empty-cart" style="display: none;">
+                <p>Your cart is empty</p>
+                <a href="menu.html" class="add-more">Browse Menu</a>
+            </div>
+
+            <!-- Add More Items -->
+            <a href="menu.html" class="add-more" id="add-more-link">
+                <span class="add-icon">+</span>
+                <span>Add more items</span>
+            </a>
+
+            <div class="divider"></div>
+
+            <!-- Delivery Options -->
+            <div class="delivery-options">
+                <label class="option">
+                    <input type="radio" name="delivery" value="pickup">
+                    <span class="radio-custom"></span>
+                    <span class="option-text">Pick up in 20min</span>
+                </label>
+                
+                <label class="option">
+                    <input type="radio" name="delivery" value="delivery" checked>
+                    <span class="radio-custom checked-icon">✓</span>
+                    <span class="option-text">Delivery Room number:</span>
+                    <input type="text" class="room-input" value="A-402" placeholder="Room #">
+                </label>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <div class="summary-row">
+                    <span class="summary-label">Subtotal:</span>
+                    <span class="summary-value" id="subtotal">0.00 $</span>
+                </div>
+                
+                <label class="points-option">
+                    <input type="checkbox" name="use-points">
+                    <span class="checkbox-custom"></span>
+                    <span class="option-text">Use points</span>
+                </label>
+                
+                <div class="summary-row">
+                    <span class="summary-label">Discount:</span>
+                    <span class="summary-value">0.00 $</span>
+                </div>
+                
+                <div class="summary-row total">
+                    <span class="summary-label">Total:</span>
+                    <span class="summary-value" id="total">0.00 $</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirm Payment Button -->
+        <div class="confirm-button">
+            Confirm Payment
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>
