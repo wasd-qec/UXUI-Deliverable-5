@@ -19,17 +19,15 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
 }
 
 .phone-frame {
     width: 100%;
     max-width: 440px;
-    height: 667px;
+    height: 100vh;
     background: var(--accent-color);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    overflow-x: hidden;
+    overflow-y: visible;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -56,13 +54,20 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background: var(--accent-color);
+    padding: 15px 20px;
+    background: var(--primary-color);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 440px;
+    z-index: 1000;
 }
 
 .back-btn {
     font-size: 24px;
-    color: var(--primary-color);
+    color: var(--accent-color);
     text-decoration: none;
     cursor: pointer;
 }
@@ -70,14 +75,14 @@ body {
 .page-title {
     font-size: 20px;
     font-weight: bold;
-    color: var(--danger-color);
+    color: var(--accent-color);
     letter-spacing: 1px;
 }
 
 .user-icon {
     width: 32px;
     height: 32px;
-    background: var(--primary-color);
+    background: var(--accent-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -100,8 +105,9 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 20px;
+    padding-top: 80px;
     padding-bottom: 100px;
-    background-color: var(--accent-color);
+    background-color: var(--neutral-color);
 }
 
 .content::-webkit-scrollbar {
@@ -345,10 +351,13 @@ body {
 
 /* Confirm Payment Button */
 .confirm-button {
-    position: absolute;
-    bottom: 30px;
-    left: 50px;
-    right: 50px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 400px;
+    z-index: 999;
     background: var(--danger-color);
     color: white;
     padding: 15px;
@@ -365,7 +374,7 @@ body {
 }
 
 .confirm-button:active {
-    transform: scale(0.98);
+    transform: translateX(-50%) scale(0.98);
 }
 
 /* Empty Cart */
