@@ -33,7 +33,6 @@ body {
     position: relative;
 }
 
-/* Status Bar */
 .status-bar {
     display: flex;
     justify-content: space-between;
@@ -49,7 +48,6 @@ body {
     align-items: center;
 }
 
-/* Header */
 .header {
     display: flex;
     justify-content: space-between;
@@ -97,7 +95,6 @@ body {
     opacity: 0.8;
 }
 
-/* Scrollable Content */
 .content {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -114,7 +111,6 @@ body {
     display: none;
 }
 
-/* Cart Item */
 .cart-item {
     display: flex;
     gap: 15px;
@@ -207,7 +203,6 @@ body {
     text-align: center;
 }
 
-/* Add More Items */
 .add-more {
     display: flex;
     align-items: center;
@@ -228,14 +223,12 @@ body {
     font-weight: bold;
 }
 
-/* Divider */
 .divider {
     height: 1px;
     background: var(--primary-color);
     margin: 15px 0;
 }
 
-/* Delivery Options */
 .delivery-options {
     display: flex;
     flex-direction: column;
@@ -290,7 +283,6 @@ body {
     color: var(--primary-color);
 }
 
-/* Order Summary */
 .order-summary {
     display: flex;
     flex-direction: column;
@@ -319,7 +311,6 @@ body {
     margin-top: 5px;
 }
 
-/* Points Checkbox */
 .points-option {
     display: flex;
     align-items: center;
@@ -349,7 +340,6 @@ body {
     color: var(--primary-color);
 }
 
-/* Confirm Payment Button */
 .confirm-button {
     position: fixed;
     bottom: 20px;
@@ -377,7 +367,6 @@ body {
     transform: translateX(-50%) scale(0.98);
 }
 
-/* Empty Cart */
 .empty-cart {
     text-align: center;
     padding: 30px 20px;
