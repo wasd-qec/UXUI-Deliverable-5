@@ -19,7 +19,6 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden;
 }
 
 .phone-frame {
@@ -220,9 +219,10 @@ body {
 }
 
 @media (min-width: 1024px) {
-    .phone-frame { max-width: 600px; height: auto; display: block; overflow: visible; }
-    .header { position: relative; top: auto; left: auto; transform: none; width: 100%; max-width: none; padding: 20px 32px; }
-    .content { display: block; padding-top: 24px; padding-bottom: 120px; background-color: var(--neutral-color); overflow-y: auto; max-height: calc(100vh - 80px); }
+    body { overflow: auto; align-items: flex-start; }
+    .phone-frame { max-width: 600px; height: auto; min-height: 100vh; display: block; overflow: visible; }
+    .header { position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 600px; padding: 20px 32px; z-index: 1000; }
+    .content { display: block; padding-top: 80px; padding-bottom: 120px; background-color: var(--neutral-color); overflow: visible; }
     .logout-button { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); width: 400px; max-width: calc(100% - 48px); }
     .logout-button:hover { transform: translateX(-50%) translateY(-2px); }
     .logout-button:active { transform: translateX(-50%) scale(0.98); }

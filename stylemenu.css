@@ -133,7 +133,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 
 }
 
@@ -240,25 +240,34 @@ body {
 }
 
 @media (min-width: 1024px) {
+    body { overflow: auto; align-items: flex-start; }
     .phone-frame {
         max-width: 1100px;
         height: auto;
+        min-height: 100vh;
         display: block;
+        overflow: visible;
     }
     .header {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
         width: 100%;
-        max-width: none;
+        max-width: 1100px;
         padding: 20px 32px;
+        z-index: 1000;
+    }
+    .categories {
+        overflow: visible;
+        flex-wrap: wrap;
+        gap: 10px;
     }
     .content {
         display: grid;
         grid-template-columns: 1fr 340px;
         gap: 24px;
-        padding-top: 24px;
+        padding-top: 140px;
         background-color: var(--neutral-color);
         align-items: start;
     }
