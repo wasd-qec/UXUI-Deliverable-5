@@ -40,16 +40,16 @@
             <!-- Delivery Options -->
             <div class="delivery-options">
                 <label class="option">
-                    <input type="radio" name="delivery" value="pickup">
+                    <input type="radio" name="delivery" value="pickup" id="pickup-option">
                     <span class="radio-custom"></span>
                     <span class="option-text">Pick up in 20min</span>
                 </label>
                 
                 <label class="option">
-                    <input type="radio" name="delivery" value="delivery" checked>
-                    <span class="radio-custom checked-icon">✓</span>
+                    <input type="radio" name="delivery" value="delivery" id="delivery-option" checked>
+                    <span class="radio-custom"></span>
                     <span class="option-text">Delivery Room number:</span>
-                    <input type="text" class="room-input" value="A-402" placeholder="Room #">
+                    <input type="text" class="room-input" id="room-input" value="A-402" placeholder="Room #">
                 </label>
             </div>
 
@@ -60,15 +60,29 @@
                     <span class="summary-value" id="subtotal">0.00 $</span>
                 </div>
                 
-                <label class="points-option">
-                    <input type="checkbox" name="use-points">
-                    <span class="checkbox-custom"></span>
-                    <span class="option-text">Use points</span>
-                </label>
+                <!-- Coupon Section -->
+                <div class="coupon-section">
+                    <div class="coupon-header">
+                        <span class="coupon-icon">🎫</span>
+                        <span class="coupon-label">Apply Coupon</span>
+                    </div>
+                    <div class="coupon-selector">
+                        <select id="coupon-select" class="coupon-dropdown">
+                            <option value="">Select a coupon</option>
+                            <option value="10off">10% OFF - Welcome Discount</option>
+                            <option value="2off">$2 OFF - Matcha Monday</option>
+                            <option value="free">FREE DRINK - Birthday Special</option>
+                        </select>
+                    </div>
+                    <div class="coupon-applied" id="coupon-applied" style="display: none;">
+                        <span class="applied-text">Coupon applied!</span>
+                        <button class="remove-coupon" id="remove-coupon">✕</button>
+                    </div>
+                </div>
                 
                 <div class="summary-row">
                     <span class="summary-label">Discount:</span>
-                    <span class="summary-value">0.00 $</span>
+                    <span class="summary-value" id="discount">0.00 $</span>
                 </div>
                 
                 <div class="summary-row total">

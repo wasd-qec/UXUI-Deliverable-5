@@ -1,4 +1,4 @@
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
 updateCartCount();
 renderSidebarCart();
 
@@ -18,7 +18,7 @@ document.querySelectorAll('.add-btn').forEach(btn => {
             cart.push({ name, price, image, quantity: 1 });
         }
 
-        localStorage.setItem('cart', JSON.stringify(cart));
+        sessionStorage.setItem('cart', JSON.stringify(cart));
         updateCartCount();
         renderSidebarCart();
 

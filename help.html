@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - Mafeu</title>
+    <link rel="stylesheet" href="stylesettings.css">
+</head>
+<body>
+    <div class="phone-frame">
+
+        <!-- Header -->
+        <div class="header">
+            <a href="settings.html" class="back-btn">↩</a>
+            <div class="page-title">Help Center</div>
+            <div class="header-spacer"></div>
+        </div>
+
+        <!-- Scrollable Content -->
+        <div class="content">
+            <!-- Search -->
+            <div class="user-section">
+                <div class="form-group">
+                    <label class="form-label">How can we help you?</label>
+                    <input type="text" class="form-input" placeholder="Search for help...">
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="section-title">Frequently Asked Questions</div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I place an order?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Browse our menu, tap the + button to add items to your cart, then proceed to checkout. You can choose pickup or delivery to your room.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What are the delivery hours?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We deliver from 7:00 AM to 9:00 PM daily. Orders placed after 9:00 PM will be scheduled for the next morning.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I use my points?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        At checkout, check the "Use points" option to apply your accumulated points as a discount. 100 points = $1 off.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I cancel my order?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Orders can be cancelled within 2 minutes of placing them. After that, please contact our support team for assistance.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I apply a voucher?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Go to Settings > Vouchers to view and apply available vouchers. You can also enter a voucher code manually.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="section-title">Contact Us</div>
+
+            <div class="menu-list">
+                <a href="#" class="menu-option">
+                    <div class="option-left">
+                        <span class="option-icon">📧</span>
+                        <span class="option-text">Email Support</span>
+                    </div>
+                    <span class="option-arrow">›</span>
+                </a>
+
+                <a href="#" class="menu-option">
+                    <div class="option-left">
+                        <span class="option-icon">💬</span>
+                        <span class="option-text">Live Chat</span>
+                    </div>
+                    <span class="option-arrow">›</span>
+                </a>
+
+                <a href="#" class="menu-option">
+                    <div class="option-left">
+                        <span class="option-icon">📞</span>
+                        <span class="option-text">Call Us</span>
+                    </div>
+                    <span class="option-arrow">›</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

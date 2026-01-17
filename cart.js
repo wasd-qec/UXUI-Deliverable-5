@@ -1,4 +1,4 @@
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
 renderCart();
 
 function renderCart() {
@@ -48,12 +48,72 @@ function updateQuantity(index, change) {
         cart.splice(index, 1);
     }
     
-    localStorage.setItem('cart', JSON.stringify(cart));
+    sessionStorage.setItem('cart', JSON.stringify(cart));
     renderCart();
 }
 
 function updateTotals() {
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const couponSelect = document.getElementById('coupon-select');
+    const discountEl = document.getElementById('discount');
+    const couponApplied = document.getElementById('coupon-applied');
+    
+    let discount = 0;
+    const selectedCoupon = couponSelect ? couponSelect.value : '';
+    
+    if (selectedCoupon === '10off') {
+        discount = subtotal * 0.10;
+    } else if (selectedCoupon === '2off') {
+        discount = Math.min(2, subtotal);
+    } else if (selectedCoupon === 'free') {
+        // Free drink - discount up to 3.95 (price of one drink)
+        discount = Math.min(3.95, subtotal);
+    }
+    
+    // Show/hide applied coupon indicator
+    if (couponApplied) {
+        couponApplied.style.display = selectedCoupon ? 'flex' : 'none';
+    }
+    
+    const total = Math.max(0, subtotal - discount);
+    
     document.getElementById('subtotal').textContent = subtotal.toFixed(2) + ' $';
-    document.getElementById('total').textContent = subtotal.toFixed(2) + ' $';
+    if (discountEl) discountEl.textContent = '-' + discount.toFixed(2) + ' $';
+    document.getElementById('total').textContent = total.toFixed(2) + ' $';
 }
+
+// Coupon handling
+const couponSelect = document.getElementById('coupon-select');
+const removeCouponBtn = document.getElementById('remove-coupon');
+
+if (couponSelect) {
+    couponSelect.addEventListener('change', updateTotals);
+}
+
+if (removeCouponBtn) {
+    removeCouponBtn.addEventListener('click', () => {
+        couponSelect.value = '';
+        updateTotals();
+    });
+}
+
+// Delivery option toggle
+const pickupOption = document.getElementById('pickup-option');
+const deliveryOption = document.getElementById('delivery-option');
+const roomInput = document.getElementById('room-input');
+
+function updateDeliveryState() {
+    if (pickupOption.checked) {
+        roomInput.disabled = true;
+        roomInput.value = '';
+    } else {
+        roomInput.disabled = false;
+        if (!roomInput.value) roomInput.value = 'A-402';
+    }
+}
+
+pickupOption.addEventListener('change', updateDeliveryState);
+deliveryOption.addEventListener('change', updateDeliveryState);
+
+// Initialize state
+updateDeliveryState();

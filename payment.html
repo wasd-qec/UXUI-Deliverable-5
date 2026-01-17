@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Methods - Mafeu</title>
+    <link rel="stylesheet" href="stylesettings.css">
+</head>
+<body>
+    <div class="phone-frame">
+
+        <!-- Header -->
+        <div class="header">
+            <a href="settings.html" class="back-btn">↩</a>
+            <div class="page-title">Payment Methods</div>
+            <div class="header-spacer"></div>
+        </div>
+
+        <!-- Scrollable Content -->
+        <div class="content">
+            <!-- Saved Cards -->
+            <div class="section-title">Saved Cards</div>
+
+            <div class="payment-list">
+                <div class="payment-card selected">
+                    <div class="card-icon visa">VISA</div>
+                    <div class="card-info">
+                        <div class="card-number">•••• •••• •••• 4532</div>
+                        <div class="card-expiry">Expires 08/27</div>
+                    </div>
+                    <div class="card-default">Default</div>
+                </div>
+
+                <div class="payment-card">
+                    <div class="card-icon mastercard">MC</div>
+                    <div class="card-info">
+                        <div class="card-number">•••• •••• •••• 8901</div>
+                        <div class="card-expiry">Expires 12/26</div>
+                    </div>
+                    <button class="set-default-btn">Set Default</button>
+                </div>
+            </div>
+
+            <!-- Add New Card -->
+            <button class="add-card-btn">
+                <span class="add-icon">+</span>
+                <span>Add New Card</span>
+            </button>
+
+            <!-- Other Payment Methods -->
+            <div class="section-title">Other Payment Methods</div>
+
+            <div class="menu-list">
+                <a href="#" class="menu-option">
+                    <div class="option-left">
+                        <span class="option-icon">📱</span>
+                        <span class="option-text">ABA Pay</span>
+                    </div>
+                    <span class="option-status connected">Connected</span>
+                </a>
+
+                <a href="#" class="menu-option">
+                    <div class="option-left">
+                        <span class="option-icon">💵</span>
+                        <span class="option-text">Wing</span>
+                    </div>
+                    <span class="option-status">Connect</span>
+                </a>
+
+                <a href="#" class="menu-option">
+                    <div class="option-left">
+                        <span class="option-icon">🏦</span>
+                        <span class="option-text">ACLEDA</span>
+                    </div>
+                    <span class="option-status">Connect</span>
+                </a>
+
+                <a href="#" class="menu-option">
+                    <div class="option-left">
+                        <span class="option-icon">💰</span>
+                        <span class="option-text">Cash on Delivery</span>
+                    </div>
+                    <span class="option-status enabled">Enabled</span>
+                </a>
+            </div>
+
+            <!-- Payment Security -->
+            <div class="security-note">
+                <span class="security-icon">🔒</span>
+                <span>Your payment information is encrypted and secure</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

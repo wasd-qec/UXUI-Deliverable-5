@@ -50,6 +50,7 @@ body {
 
 .header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
     background: var(--primary-color);
@@ -61,6 +62,10 @@ body {
     width: 100%;
     max-width: 440px;
     z-index: 1000;
+}
+
+.header-spacer {
+    width: 32px;
 }
 
 .back-btn {
@@ -219,11 +224,822 @@ body {
 }
 
 @media (min-width: 1024px) {
-    body { overflow: auto; align-items: flex-start; }
-    .phone-frame { max-width: 600px; height: auto; min-height: 100vh; display: block; overflow: visible; }
-    .header { position: fixed; top: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 600px; padding: 20px 32px; z-index: 1000; }
-    .content { display: block; padding-top: 80px; padding-bottom: 120px; background-color: var(--neutral-color); overflow: visible; }
-    .logout-button { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); width: 400px; max-width: calc(100% - 48px); }
-    .logout-button:hover { transform: translateX(-50%) translateY(-2px); }
-    .logout-button:active { transform: translateX(-50%) scale(0.98); }
+    body { 
+        overflow: auto; 
+        align-items: flex-start;
+        background: linear-gradient(135deg, var(--neutral-color) 0%, var(--accent-color) 100%);
+    }
+    .phone-frame { 
+        max-width: 700px; 
+        height: auto; 
+        min-height: 100vh; 
+        display: block; 
+        overflow: visible;
+        background: transparent;
+    }
+    .header { 
+        position: fixed; 
+        top: 0; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        width: 100%; 
+        max-width: 700px; 
+        padding: 20px 40px; 
+        z-index: 1000;
+        background: linear-gradient(135deg, var(--primary-color) 0%, #3a2220 100%);
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 4px 20px rgba(75, 46, 42, 0.3);
+    }
+    .page-title {
+        font-size: 24px;
+        letter-spacing: 2px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .back-btn {
+        font-size: 28px;
+        transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+        transform: translateX(-4px);
+        opacity: 0.8;
+    }
+    .content { 
+        display: block; 
+        padding: 100px 40px 140px;
+        background: transparent;
+        overflow: visible; 
+    }
+    
+    /* User Section */
+    .user-section {
+        background: white;
+        border-radius: 16px;
+        padding: 28px;
+        margin-bottom: 28px;
+        box-shadow: 0 4px 16px rgba(75, 46, 42, 0.1);
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group:last-child {
+        margin-bottom: 0;
+    }
+    .form-label {
+        font-size: 15px;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+    }
+    .form-input {
+        padding: 14px 18px;
+        font-size: 16px;
+        border-radius: 12px;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+    .form-input:hover {
+        border-color: var(--neutral-color);
+    }
+    .form-input:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 4px rgba(199, 161, 122, 0.2);
+    }
+    
+    /* Section Title */
+    .section-title {
+        font-size: 22px;
+        color: var(--primary-color);
+        font-style: normal;
+        border-left: 4px solid var(--secondary-color);
+        padding-left: 16px;
+        margin-bottom: 20px;
+        margin-top: 0;
+    }
+    
+    /* Menu List */
+    .menu-list {
+        background: white;
+        border-radius: 16px;
+        padding: 8px;
+        box-shadow: 0 4px 16px rgba(75, 46, 42, 0.1);
+    }
+    .menu-option {
+        padding: 18px 20px;
+        border-radius: 12px;
+        border-bottom: none;
+        margin-bottom: 4px;
+        transition: all 0.3s ease;
+    }
+    .menu-option:last-child {
+        margin-bottom: 0;
+    }
+    .menu-option:hover {
+        background: var(--neutral-color);
+        transform: translateX(4px);
+    }
+    .option-icon {
+        font-size: 22px;
+        width: 32px;
+    }
+    .option-text {
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--primary-color);
+    }
+    .option-arrow {
+        font-size: 28px;
+        color: var(--secondary-color);
+        transition: all 0.3s ease;
+    }
+    .menu-option:hover .option-arrow {
+        transform: translateX(4px);
+        color: var(--primary-color);
+    }
+    
+    /* Logout Button */
+    .logout-button { 
+        position: fixed; 
+        bottom: 28px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        width: 500px; 
+        max-width: calc(100% - 80px);
+        padding: 18px 32px;
+        font-size: 18px;
+        border-radius: 16px;
+    }
+    .logout-button:hover { 
+        transform: translateX(-50%) translateY(-3px);
+        box-shadow: 0 10px 32px rgba(139, 58, 58, 0.45);
+    }
+    .logout-button:active { 
+        transform: translateX(-50%) scale(0.98); 
+    }
+}
+
+/* ==================== */
+/* VOUCHERS PAGE STYLES */
+/* ==================== */
+
+.voucher-input-row {
+    display: flex;
+    gap: 10px;
+}
+
+.voucher-input-row .form-input {
+    flex: 1;
+}
+
+.apply-btn {
+    padding: 12px 20px;
+    background: var(--primary-color);
+    color: var(--accent-color);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.apply-btn:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.voucher-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.voucher-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--secondary-color);
+}
+
+.voucher-card.expired {
+    opacity: 0.6;
+    border-left-color: #999;
+}
+
+.voucher-badge {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #3a2220 100%);
+    color: var(--accent-color);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+    min-width: 70px;
+}
+
+.voucher-info {
+    flex: 1;
+}
+
+.voucher-title {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.voucher-desc {
+    font-size: 13px;
+    color: var(--secondary-color);
+    margin-bottom: 4px;
+}
+
+.voucher-expiry {
+    font-size: 12px;
+    color: #888;
+}
+
+.use-btn {
+    padding: 8px 16px;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.use-btn:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: var(--accent-color);
+}
+
+.use-btn:disabled {
+    border-color: #999;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* ======================= */
+/* ORDER HISTORY PAGE STYLES */
+/* ======================= */
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.order-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.order-id {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.order-status {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.order-status.completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.order-status.cancelled {
+    background: #f8d7da;
+    color: var(--danger-color);
+}
+
+.order-date {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+.order-items {
+    border-top: 1px solid var(--neutral-color);
+    border-bottom: 1px solid var(--neutral-color);
+    padding: 12px 0;
+    margin-bottom: 12px;
+}
+
+.order-item-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--primary-color);
+    margin-bottom: 6px;
+}
+
+.order-item-row:last-child {
+    margin-bottom: 0;
+}
+
+.order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-total {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.reorder-btn {
+    padding: 8px 20px;
+    background: var(--primary-color);
+    color: var(--accent-color);
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reorder-btn:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* ==================== */
+/* HELP CENTER PAGE STYLES */
+/* ==================== */
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--primary-color);
+    transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+    background: var(--neutral-color);
+}
+
+.faq-toggle {
+    font-size: 20px;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.faq-answer {
+    padding: 0 16px 16px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    display: none;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+/* ==================== */
+/* POINTS PAGE STYLES */
+/* ==================== */
+
+.points-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #3a2220 100%);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 24px rgba(75, 46, 42, 0.3);
+}
+
+.points-label {
+    color: var(--secondary-color);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.points-value {
+    color: var(--accent-color);
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.points-equivalent {
+    color: var(--secondary-color);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.points-tier {
+    display: flex;
+    justify-content: center;
+}
+
+.tier-badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.tier-badge.gold {
+    background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+    color: var(--primary-color);
+}
+
+.earn-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.earn-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.earn-icon {
+    font-size: 28px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--neutral-color);
+    border-radius: 12px;
+}
+
+.earn-info {
+    flex: 1;
+}
+
+.earn-title {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.earn-desc {
+    font-size: 13px;
+    color: var(--secondary-color);
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.activity-title {
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 2px;
+}
+
+.activity-date {
+    font-size: 12px;
+    color: #888;
+}
+
+.activity-points {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.activity-points.positive {
+    color: #28a745;
+}
+
+.activity-points.negative {
+    color: var(--danger-color);
+}
+
+/* Redeem Points for Coupons Styles */
+.redeem-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.redeem-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--secondary-color);
+}
+
+.redeem-item.locked {
+    opacity: 0.6;
+    border-left-color: #999;
+}
+
+.redeem-badge {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #3a2220 100%);
+    color: var(--accent-color);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    min-width: 60px;
+}
+
+.redeem-info {
+    flex: 1;
+}
+
+.redeem-title {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.redeem-desc {
+    font-size: 12px;
+    color: var(--secondary-color);
+}
+
+.redeem-action {
+    text-align: center;
+}
+
+.redeem-cost {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 6px;
+}
+
+.redeem-btn {
+    padding: 8px 16px;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.redeem-btn:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: var(--accent-color);
+}
+
+.redeem-btn:disabled {
+    border-color: #999;
+    color: #999;
+    cursor: not-allowed;
+    background: #f5f5f5;
+}
+
+/* ==================== */
+/* PAYMENT PAGE STYLES */
+/* ==================== */
+
+.payment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.payment-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-card:hover {
+    border-color: var(--secondary-color);
+}
+
+.payment-card.selected {
+    border-color: var(--primary-color);
+    background: var(--accent-color);
+}
+
+.card-icon {
+    width: 50px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.card-icon.visa {
+    background: #1a1f71;
+    color: white;
+}
+
+.card-icon.mastercard {
+    background: #eb001b;
+    color: white;
+}
+
+.card-info {
+    flex: 1;
+}
+
+.card-number {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 2px;
+}
+
+.card-expiry {
+    font-size: 12px;
+    color: #888;
+}
+
+.card-default {
+    padding: 4px 12px;
+    background: var(--primary-color);
+    color: var(--accent-color);
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.set-default-btn {
+    padding: 6px 12px;
+    background: transparent;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 20px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.set-default-btn:hover {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.add-card-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px;
+    background: white;
+    border: 2px dashed var(--secondary-color);
+    border-radius: 12px;
+    color: var(--secondary-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 24px;
+}
+
+.add-card-btn:hover {
+    background: var(--accent-color);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.add-card-btn .add-icon {
+    font-size: 20px;
+}
+
+.option-status {
+    font-size: 13px;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.option-status.connected,
+.option-status.enabled {
+    color: #28a745;
+}
+
+.security-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    background: rgba(75, 46, 42, 0.05);
+    border-radius: 12px;
+    font-size: 13px;
+    color: #666;
+    margin-top: 24px;
+}
+
+.security-icon {
+    font-size: 18px;
+}
+
+/* Desktop styles for new pages */
+@media (min-width: 1024px) {
+    .voucher-card {
+        padding: 20px;
+    }
+    
+    .voucher-badge {
+        padding: 14px 16px;
+        min-width: 80px;
+    }
+    
+    .order-card {
+        padding: 20px;
+    }
+    
+    .points-card {
+        padding: 36px;
+    }
+    
+    .points-value {
+        font-size: 56px;
+    }
+    
+    .earn-item {
+        padding: 20px;
+    }
+    
+    .payment-card {
+        padding: 20px;
+    }
+    
+    .faq-question {
+        padding: 20px;
+    }
+    
+    .faq-answer {
+        padding: 0 20px 20px;
+    }
 }
